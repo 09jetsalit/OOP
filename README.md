@@ -25,13 +25,19 @@ stop() {
 - เป็นการเข้าถึงobject จากที่สืบทอด และสามารถเพิ่ม parameter หรือ method เข้าไปเพิ่มได้หรือสามารถ เขียน method ชื่อซ้ำทับไปได้ เช่น
 
 class Car { #color; // ห่อหุ้มด้วย # #brand;
+
 constructor(color, brand) {
+
     this.#color = color;
+    
     this.#brand = brand;
+    
 }
 
 getColor() {
+
     return this.#color;
+    
 }
 }
 
@@ -41,9 +47,15 @@ getColor() {
 - จะแสดงตามตัวอย่าง เช่นมี 2 class แต่มัน method ชื่อเดียวกันเลยซึ่ง method ชื่อเดียวกัน แต่ในmethod ที่ชื่อเดัยวกันทำงานไม่เหมือนกัน โค๊ดตัวอย่าง
 
 class Car { drive() { console.log("The car is driving."); } }
+
 class ElectricCar extends Car { drive() { console.log("The electric car is driving silently."); } }
+
 function testDrive(car) { car.drive(); }
+
 const car = new Car(); const electricCar = new ElectricCar();
+
 testDrive(car); // Output: The car is driving. testDrive(electricCar); // Output: The electric car is driving silently.
+
 จะเห็นว่า method drive ใน class Car ต่างจาก class ElectricCar
+
 เมื่อมีการเรียกใช้ function testDrive ถึงแม้ method เดียวกันแต่ผลลัพธ์ที่ได้ต่างกัน
